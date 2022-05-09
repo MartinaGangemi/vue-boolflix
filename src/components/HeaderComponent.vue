@@ -1,7 +1,7 @@
 <template>
     <header>
         <div>
-            <Search v-model = "cercaFilm" @submit = "search"/>
+            <Search v-model = "cercaFilm" @submit = "search" />
         </div>
     </header>
 </template>
@@ -24,9 +24,10 @@ export default ({
     },
 
     methods:{
+
         search() {
             state.cercaFilm = this.cercaFilm;
-            console.log(state.cercaFilm);
+
         },
     }
 

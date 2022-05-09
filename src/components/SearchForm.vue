@@ -1,11 +1,11 @@
 <template>
-    <form  @submit.prevent="$emit('submit')">
+    <div>
         <input type="search" :value = "cercaFilm" 
-        @input="$emit('input', $event.target.value)"
-         @enternput = "$emit('submit', cercaFilm)"
+        @input = "$emit('input', $event.target.value)"
+         @keyup.enter = "$emit('submit', cercaFilm)"
         > 
-        <button @click = "$emit('submit', cercaFilm)" >cerca</button> 
-    </form>  
+        <button @click = "$emit('submit', cercaFilm)">cerca</button> 
+    </div>  
     
 </template>
 
