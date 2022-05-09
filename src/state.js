@@ -1,6 +1,6 @@
 import Vue from "vue"
 const state = Vue.observable ({
-    cercaFilm:"",
+    query:"",
 })
 
 export default state

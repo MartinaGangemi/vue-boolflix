@@ -9,6 +9,7 @@
 
 import Header from './components/HeaderComponent.vue'
 import Main from './components/MainComponent.vue'
+
 export default {
   name: 'App',
   components: {

@@ -1,22 +1,19 @@
 <template>
     <div>
-        <input type="search" :value = "cercaFilm" 
+        <input type="search" :value = "query" 
         @input = "$emit('input', $event.target.value)"
-         @keyup.enter = "$emit('submit', cercaFilm)"
+         @keyup.enter = "$emit('submit', query)"
         > 
-        <button @click = "$emit('submit', cercaFilm)">cerca</button> 
+        <button @click = "$emit('submit', query)">cerca</button> 
     </div>  
     
 </template>
 
 <script>
-
-
 export default {
     name:"SearchComponent",
       props: {
-        cercaFilm: String,
+        query: String,
     }
-
 }
 </script>
