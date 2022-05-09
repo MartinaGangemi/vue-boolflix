@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- search -->
-        <div v-for = "(movie, index) in filteredMovie" :key="index"> {{  movie }} </div>
+        <div v-for = "(movie, index) in filteredMovie" :key="index"> {{  movie.name }} </div>
     </div>
 </template>
 
@@ -13,11 +13,10 @@ export default {
     name: "MainComponent",
 
     data() {
+
         return {
-        link:"https://api.themoviedb.org/3/search/company?api_key=5d674668187da98c6d6920a892f310df&page=1&query=star&language=it-IT",
+        link:`https://api.themoviedb.org/3/search/company?api_key=5d674668187da98c6d6920a892f310df&page=1&query=${state.cercaFilm}&language=it-IT`,
         movieList: null,
-        
-       
         };
     },
 
@@ -39,9 +38,13 @@ export default {
 
     computed:{
         filteredMovie(){
-            return this.movieList.results.filter(movie =>{
-                return movie.name.toLowerCase().includes(state.cercaFilm.toLowerCase())
-            })
+            if(state.cercaFilm){
+                return this.movieList.results.filter(movie =>{
+                    return movie.name.toLowerCase().includes(state.cercaFilm.toLowerCase())
+                })
+            } else {
+                return this.movieList
+            }
         }
     },
 
