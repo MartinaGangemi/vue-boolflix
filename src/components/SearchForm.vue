@@ -1,9 +1,11 @@
 <template>
     <div>
-        <input type="search" :value="query"
+        <input  type="text" class="form-control" :value="query"
         @input="$emit('input', $event.target.value)"
+        @keyup.enter="$emit('submitSearch', query)"
         > 
-        <button @click = "$emit('submitSearch', query)">cerca</button> 
+        
+        
     </div>  
     
 </template>
@@ -19,3 +21,19 @@ export default {
    
 }
 </script>
+
+<style lang="scss" scoped>
+ input{
+    background-color: transparent !important;
+    border: 1px solid white; 
+    color: white!important;
+    padding: 0.2rem;
+    border-radius: 0;
+ }
+
+ input:focus{
+     outline-offset: 0;
+     box-shadow: none!important;
+     border: 1px solid white; 
+ }
+</style>
