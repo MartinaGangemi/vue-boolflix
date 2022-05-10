@@ -6,55 +6,70 @@
 
             <!-- main -->
             <main>
-                
-                    <!-- condizioni per serie tv -->
-                
-                    <!-- condizione per movie -->
+                <!-- condizione per movie -->
                 <div class="row row-cols-5 m-0">
                     <div class="col" v-for = "(movie, index) in movieList" :key="index">
-                        <div v-if="movie.title" class="card">
-                            {{movie.title}} 
-                            {{movie.original_title}} 
-                            {{ movie. vote_average}}
-                            <div v-if= "movie.original_language == 'en'">
-                            <flag iso ="gb" />
+                        <div v-if="movie.title" class="movie-card">
+                            <!-- sfondo immagine -->
+                            <div class="sfondo-immagine">
+                                <img :src="`https://image.tmdb.org/t/p/w200` + movie.poster_path " alt="" >
                             </div>
-                        <div v-if= "movie.original_language == 'ja'">
-                            <flag iso ="jp" />
-                        </div>
-                        <div v-else>
-                            <flag :iso = "movie.original_language" /> 
-                        </div>
+                            <!-- testo -->
+                                <div class="testo-card">
+                                    <h5>{{movie.title}} </h5>
+                                    <h6>{{movie.original_title}} </h6>
+                                    <Rate :readonly="true" :length="5" :value="movie.vote_average / 2"></Rate>
+                                
+                                    {{ movie. vote_average}}
+                                    <br>
+                                    <!-- bandiere -->
+                                    <div v-if= "movie.original_language == 'en'">
+                                        <flag iso ="gb" />
+                                    </div>
+                                    <div v-if= "movie.original_language == 'ja'">
+                                        <flag iso ="jp" />
+                                    </div>
+                                    <div v-else>
+                                        <flag :iso = "movie.original_language" /> 
+                                    </div>
                 
-                        </div> 
+                                </div> 
+                        </div>
+                            
+                            
                         <!-- else per serie TV -->
-                        <div v-else class="card">
-                            {{movie.name}}
-                            {{movie.original_name}} 
-                            {{ movie. vote_average}}
-                            <div v-if= "movie.original_language == 'en'">
-                            <flag iso ="gb" />
+                        <div v-else class="movie-card">
+                            <!-- sfondo immagine -->
+                            <div class="sfondo-immagine">
+                                <img :src="`https://image.tmdb.org/t/p/w200` + movie.poster_path " alt="">
                             </div>
-                        <div v-if= "movie.original_language == 'ja'">
-                            <flag iso ="jp" />
-                        </div>
-                        <div v-else>
-                            <flag :iso = "movie.original_language" /> 
-                        </div>
+                            <!-- testo -->
+                                <div class="testo-card">
+                                    <h5>{{movie.name}}</h5>
+                                    <h6>{{movie.original_name}}</h6> 
+                                    <Rate :readonly="true" :length="5" :value="movie.vote_average / 2"></Rate>
+                                    <!-- bandiere -->
+                                    <div v-if= "movie.original_language == 'en'">
+                                        <flag iso ="gb" />
+                                    </div>
+                                    <div v-if= "movie.original_language == 'ja'">
+                                        <flag iso ="jp" />
+                                    </div>
+                                    <div v-else>
+                                        <flag :iso = "movie.original_language" /> 
+                                    </div>
                 
+                                </div>
                         </div>
-                        
-                        <!--  
-                        
-                          -->
-                    </div>
-                </div>
+                    </div>        
+                </div>            
             </main>
         
     </div>
 </template>
 
 <script>
+import Rate from '../../node_modules/vue-rate/src/Rate.vue';
 import Search from "@/components/SearchForm.vue";
 import axios from "axios"
 import state from "@/state.js";
@@ -62,7 +77,8 @@ export default {
     name: "HeaderComponent",
     
     components:{
-        Search
+        Search,
+       Rate
     },
     data (){
         return {
@@ -71,7 +87,7 @@ export default {
         }
     },
     methods:{
-    
+        
 
         search(){
 
@@ -100,6 +116,27 @@ export default {
             })
         }
     
-    }
+    },
+
+    
 }
 </script>
+
+<style lang="scss" scoped>
+    
+
+    .sfondo-immagine{
+        position: relative;
+        height: 300px;
+
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .Rate_star{
+        padding: 1px;
+    }
+    
+</style>
