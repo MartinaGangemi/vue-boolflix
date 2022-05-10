@@ -10,10 +10,21 @@
 </template>
 
 <script>
+
 export default {
     name:"SearchComponent",
       props: {
         query: String,
-    }
+    },
+
+    data(){
+        
+    },
+
+    methods:{
+      
+        
+        
+        },
 }
 </script>
