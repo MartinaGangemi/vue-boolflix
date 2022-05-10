@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <Header />
@@ -6,10 +7,8 @@
 </template>
 
 <script>
-
 import Header from './components/HeaderComponent.vue'
 import Main from './components/MainComponent.vue'
-
 export default {
   name: 'App',
   components: {
@@ -17,15 +16,9 @@ export default {
    Main
   }
 }
-
-
     
-
-
 </script>
 
 <style lang="scss">
 @import '@/assets/scss/style.scss';
-
-
 </style>

@@ -26,20 +26,17 @@ export default {
     name: "MainComponent",
     data() {
         return {
-        linkFilm:`https://api.themoviedb.org/3/search/movie?api_key=5d674668187da98c6d6920a892f310df&language=en-US&page=1&include_adult=false&query=${state.query}`,
-        linkSerie:`https://api.themoviedb.org/3/search/tv?api_key=5d674668187da98c6d6920a892f310df&language=it-IT&query=${state.query}`,
+        // linkFilm:`https://api.themoviedb.org/3/search/movie?api_key=5d674668187da98c6d6920a892f310df&language=en-US&page=1&include_adult=false&query=${state.query}`,
+        // linkSerie:`https://api.themoviedb.org/3/search/tv?api_key=5d674668187da98c6d6920a892f310df&language=it-IT&query=${state.query}`,
         movieList: [],
         };
     },
     methods:{
-        linkCompleto(){
-            this.linkFilm = `https://api.themoviedb.org/3/search/movie?api_key=5d674668187da98c6d6920a892f310df&language=en-US&page=1&include_adult=false&query=${state.query}`
-            
-        },
+      
         
         SearchMovie(){
-            this.linkCompleto()
-            axios.get(this.linkFilm)
+            console.log(this.movieList);
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=5d674668187da98c6d6920a892f310df&language=en-US&page=1&include_adult=false&query=${state.query}`)
             .then((response) =>{
             this.movieList = response.data.results;
             })
@@ -48,19 +45,16 @@ export default {
             });
             },
         },
-
          
         
     computed:{
         
         filteredMovie(){
-            
             this.SearchMovie()
             return this.movieList.filter(movie =>{
                 return movie.title.toLowerCase().includes(state.query.toLowerCase())
             })
         }
-
     },
 }
   
