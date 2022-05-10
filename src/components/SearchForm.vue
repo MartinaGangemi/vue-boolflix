@@ -1,10 +1,9 @@
 <template>
     <div>
-        <input type="search" :value = "query" 
+        <input type = "search" v-bind:value="query"
         @input = "$emit('input', $event.target.value)"
-         @keyup.enter = "$emit('submit', query)"
         > 
-        <button @click = "$emit('submit', query)">cerca</button> 
+        <button @click = "$emit('submitSearch', query)">cerca</button> 
     </div>  
     
 </template>

@@ -1,7 +1,7 @@
 <template>
     <header>
         <div>
-            <Search v-model = "query" @submit = "search" @click = "searchMovie"/>
+            <Search :v-model = "query"  @submitSearch="search" />
         </div>
     </header>
 </template>
@@ -24,6 +24,7 @@ export default ({
     methods:{
         search() {
             state.query = this.query;
+            console.log(state.query)
             state.movieList = this.movieList
         },
 
