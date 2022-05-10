@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input type = "search" v-bind:value="query"
-        @input = "$emit('input', $event.target.value)"
+        <input type="search" :value="query"
+        @input="$emit('input', $event.target.value)"
         > 
         <button @click = "$emit('submitSearch', query)">cerca</button> 
     </div>  
@@ -16,14 +16,6 @@ export default {
         query: String,
     },
 
-    data(){
-        
-    },
-
-    methods:{
-      
-        
-        
-        },
+   
 }
 </script>
