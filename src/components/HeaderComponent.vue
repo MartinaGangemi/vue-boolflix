@@ -25,7 +25,6 @@ export default {
     
     components:{
         Search,
-      
     },
     data (){
         return {

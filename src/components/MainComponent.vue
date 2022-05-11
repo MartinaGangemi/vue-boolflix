@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         {{movie.overview}}
-                        <Rate :readonly="true" :length="5" :value="movie.vote_average / 2"></Rate>
+                        <star-rating :animate="true" :show-rating="false" :star-size="20"  :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]" :readonly="true" :max-rating="5" :rating="movie.vote_average / 2"></star-rating>
                     </div>
                 </div>
             </div>        
@@ -40,13 +40,16 @@
 
 <script>
 import state from '@/state';
-import Rate from '../../node_modules/vue-rate/src/Rate.vue';
+import StarRating from 'vue-star-rating'
 
 export default {
     name: "MainComponent",
+    components:{
+        StarRating
+    },
     data() {
         return {
-        Rate,
+        
         movieList: [],
         query:"",
         };
@@ -100,6 +103,6 @@ export default {
             display: block !important;
         }
     }
-    
-  
+
+
 </style>
