@@ -30,6 +30,7 @@ export default {
         return {
             query: "",
             movieList: [],
+            movieId:0
         }
     },
     methods:{
@@ -42,7 +43,8 @@ export default {
             let cast =`https://api.themoviedb.org/3/movie/634649/credits?api_key=5d674668187da98c6d6920a892f310df&language=en-US&`
             const requestFilm = axios.get(film)
             const requestSerie = axios.get(serieTv)
-            const requestCast = axios.get(cast)
+            const requestCast= axios.get(cast)
+            
            
 
             axios.all([requestFilm, requestSerie, requestCast])
@@ -51,12 +53,20 @@ export default {
             const responseOne = responses[0].data.results
             const responseTwo = responses[1].data.results
             const responseThree = responses[2].data
-            console.log( responseOne, responseTwo, responseThree, "b")
+            
             state.movieList = [...responseOne, ...responseTwo]
             state.cast = [responseThree]
             console.log(state.cast)
-            // console.log(this.movieList)
-             this.movieList= state.movieList
+            this.movieList= state.movieList
+            console.log(this.movieList)
+
+                this.movieList.forEach((movie) => {
+                    this.movieId = 0
+                    const movieId = movie.id
+                    this.linkCast=`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=5d674668187da98c6d6920a892f310df&language=en-US&`
+                    console.log(this.linkCast)
+                
+                })
                
             })
             )
