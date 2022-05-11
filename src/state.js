@@ -1,7 +1,8 @@
 import Vue from "vue"
 const state = Vue.observable ({
     show:null,
-    movieList:[]
+    movieList:[],
+    cast:[]
 })
 
 export default state

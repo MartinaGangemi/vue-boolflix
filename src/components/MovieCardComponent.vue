@@ -1,13 +1,12 @@
 <template>
 <div>
     <div class="row m-0">
-        <div class="col py-4 d-flex justify-content-center" v-for = "(movie, index) in nuovoArray" :key="index" >
+        <div class="col py-4 d-flex justify-content-center" v-for="movie in nuovoArray" :key="movie.id" >
             <!-- card -->
             <div class="movie-card">
                 <!-- sfondo immagine -->
                 <div v-if="movie.poster_path==null" class="poster"></div>
                 <img v-else :src="`https://image.tmdb.org/t/p/w200` + movie.poster_path " alt="" >
-                
                 <!-- testo -->
                 <div class="testo-card">
                     <h5 v-if="movie.title" class="text-center">{{movie.title}}</h5>
@@ -26,15 +25,19 @@
                             <flag :iso = "movie.original_language" /> 
                         </div>
                     </div>
+                    <div class="d-flex flex-wrap justify-content-center mb-3">
+                        <h6 class="text-center mb-0 me-2">Cast</h6>
+                        <div  v-for="attore in movie.cast" :key="attore.id" >
+                            {{attore.name}},
+                        </div>
+                    </div>
                     {{movie.overview}}
                     <!-- star rating -->
                     <div class="d-flex justify-content-center">
-                        <star-rating class="mt-2" :animate="true" :show-rating="false" :star-size="25"  :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]" :readonly="true" :max-rating="5" :rating="movie.vote_average / 2"></star-rating>
+                        <star-rating class="mt-2" :animate="true" :show-rating="false" :star-size="25"  :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]" :read-only="true" :max-rating="5" :rating="movie.vote_average / 2"></star-rating>
                     </div>
-                    
                 </div>
             </div>
-            
         </div>  
     </div> 
 
@@ -56,18 +59,18 @@ export default {
     data() {
         return {
         movieList: [],
+        cast:[],
         query:"",
        };
     },
    
-    
     computed:{
         nuovoArray(){
             return state.movieList.map(movie => {
                return movie
             })
-        }
-    
+        },
+
     }
 }
   
@@ -87,7 +90,6 @@ export default {
         width: 260px;
        
         img{
-            
             height: 100%;
             width: 100%;
             object-fit: cover;
