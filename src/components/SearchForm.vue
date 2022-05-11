@@ -11,13 +11,11 @@
 </template>
 
 <script>
-
 export default {
     name:"SearchComponent",
       props: {
         query: String,
     },
-
    
 }
 </script>
@@ -30,7 +28,6 @@ export default {
     padding: 0.2rem;
     border-radius: 0;
  }
-
  input:focus{
      outline-offset: 0;
      box-shadow: none!important;
