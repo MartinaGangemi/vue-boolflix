@@ -1,8 +1,9 @@
 <template>
+<div>
     <div class="row m-0">
-        <div class="col py-4 d-flex justify-content-center" v-for = "(movie, index) in nuovoArray" :key="index">
+        <div class="col py-4 d-flex justify-content-center" v-for = "(movie, index) in nuovoArray" :key="index" >
             <!-- card -->
-            <div  class="movie-card">
+            <div class="movie-card">
                 <!-- sfondo immagine -->
                 <div v-if="movie.poster_path==null" class="poster"></div>
                 <img v-else :src="`https://image.tmdb.org/t/p/w200` + movie.poster_path " alt="" >
@@ -33,9 +34,13 @@
                     
                 </div>
             </div>
-        </div>   
-    </div>     
-     
+            
+        </div>  
+    </div> 
+
+    
+</div>
+    
     
 </template>
 
@@ -50,17 +55,16 @@ export default {
     },
     data() {
         return {
-        
         movieList: [],
         query:"",
-        };
+       };
     },
-
+   
     
     computed:{
         nuovoArray(){
             return state.movieList.map(movie => {
-                return movie
+               return movie
             })
         }
     
@@ -81,12 +85,14 @@ export default {
         position: relative;
         height: 400px;
         width: 260px;
+       
         img{
             
             height: 100%;
             width: 100%;
             object-fit: cover;
         }
+        
         
         .testo-card{
         display: none!important;
@@ -99,9 +105,11 @@ export default {
         background-color: rgba(0, 0, 0, 0.504);
         position: absolute;
         top: 0;
+        
         }
         &:hover .testo-card {
             display: block !important;
+            
         }
     }
 
