@@ -5,10 +5,10 @@
                 <div class="col-2 logo_box ">
                     <img src="@/assets/img/logo.png" alt="">
                 </div>
-                <div class="col-6">
+                <div class="col-7">
                     <Nav />
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <Search v-model="query"  @submitSearch="search" />
                 </div>
             </div>
@@ -70,10 +70,8 @@ export default {
                 state.movieList = [...responseOne, ...responseTwo]
                 this.movieList = state.movieList
                 
-                // ciclo per gli id
+                // chiamata attori
                 this.movieId.forEach((movie) => {
-                   
-                    // chiamata
                     axios.get( `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=5d674668187da98c6d6920a892f310df&language=en-US&`)
                     .then((response) =>{
                         this.$set(movie, 'cast',  response.data.cast.slice(0,5))

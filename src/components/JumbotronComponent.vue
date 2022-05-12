@@ -10,6 +10,7 @@
                     <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam beatae exercitationem eligendi ipsam, quas blanditiis commodi omnis maxime eaque incidunt voluptatum consequatur sapiente non libero, at velit voluptatem est?</p>
                 </div>
             </div>
+           
         </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
 <style lang="scss" scoped>
 
     .jumbo{
-        -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+        -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(255, 255, 255, 0)));
         background-image: url(@/assets/img/jumbo.jpg);
         height: 600px;
         background-repeat: no-repeat;
