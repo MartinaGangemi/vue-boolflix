@@ -2,8 +2,11 @@
     <header :class="{ 'onScroll': !view.topOfPage}">
         <div class="container">
             <div class=" py-2 row align-items-center">
-                <div class="col-8 logo_box ">
+                <div class="col-2 logo_box ">
                     <img src="@/assets/img/logo.png" alt="">
+                </div>
+                <div class="col-6">
+                    <Nav />
                 </div>
                 <div class="col-4">
                     <Search v-model="query"  @submitSearch="search" />
@@ -14,6 +17,7 @@
 </template>
 
 <script>
+import Nav from "@/components/NavComponent.vue";
 import Search from "@/components/SearchForm.vue";
 import axios from "axios"
 import state from "@/state.js";
@@ -21,6 +25,7 @@ export default {
     name: "HeaderComponent",
     
     components:{
+        Nav,
         Search,
     },
     data (){

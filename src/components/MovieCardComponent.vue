@@ -1,6 +1,6 @@
 <template>
-<div>
-    <div class="row m-0">
+
+    <div class="row m-0 position-relative">
         <div class="col py-4 d-flex justify-content-center" v-for="movie in nuovoArray" :key="movie.id" >
             <!-- card -->
             <div class="movie-card">
@@ -41,10 +41,6 @@
         </div>  
     </div> 
 
-    
-</div>
-    
-    
 </template>
 
 <script>
@@ -78,9 +74,7 @@ export default {
 
 <style lang="scss" scoped>
 /*main*/
-    main{
-        margin-top: 80px ;
-    }
+    
     .poster{
         background-color: black;
     }
