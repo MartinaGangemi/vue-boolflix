@@ -1,9 +1,8 @@
 <template>
     <!-- main -->
-    <main>
+    <main class="mb-5">
         <jumbotron />
-        <div class="container">
-
+        <div class="container mb-5">
             <siteMovieCard />  
         </div>
     </main>
@@ -20,7 +19,6 @@ export default {
         siteMovieCard,
         jumbotron
     },
-    
 }
   
 </script>

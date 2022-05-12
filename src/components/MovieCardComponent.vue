@@ -1,6 +1,6 @@
 <template>
     <div v-if="Movies.length>0" class="row m-0 position-relative">
-        <div class="col py-4 d-flex justify-content-center justify-content-sm-start" v-for="movie in Movies" :key="movie.id" >
+        <div class="col pb-4 px-2 d-flex justify-content-center justify-content-sm-start" v-for="movie in Movies" :key="movie.id" >
             <!-- card -->
             <div class="movie-card">
                 <!-- sfondo immagine -->
